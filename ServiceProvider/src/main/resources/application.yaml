@@ -1,0 +1,21 @@
+# 服务提供者配置
+spring:
+  application:
+    name: dubbo-user-service-provider
+
+dubbo:
+  # 应用名称
+  application:
+    name: dubbo-user-service-provider
+  # 注册中心地址，这里使用ZooKeeper作为注册中心
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  # 协议配置
+  protocol:
+    # 默认使用 Dubbo 协议（基于 TCP 的二进制协议，性能优）
+    # 也支持 HTTP、REST、gRPC 等协议，可通过配置指定。
+    name: dubbo
+    port: 20880
+  # 扫描注解包路径，指定@DubboService注解所在的包
+  scan:
+    base-packages: com.demo.dubbo.provider.service

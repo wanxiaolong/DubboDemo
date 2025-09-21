@@ -1,0 +1,23 @@
+# 配置和Provider不同的端口
+server:
+  port: 8081
+
+# 服务消费者配置
+spring:
+  application:
+    name: dubbo-user-service-consumer
+
+dubbo:
+  # 应用名称
+  application:
+    # 修改为与Provider不同的端口（如22223）
+    qos-port: 33333
+    name: dubbo-user-service-consumer
+  # 注册中心地址，与服务提供者一致
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  # 消费者配置
+  consumer:
+    check: false  # 启动时不检查服务是否存在
+    timeout: 3000 # 调用超时时间
+
